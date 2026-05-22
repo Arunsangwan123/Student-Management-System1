@@ -61,6 +61,14 @@ EOF
         '''
       }
     }
+    stage('Cleanup Old Containers') {
+      steps {
+        sh '''
+          docker-compose -f docker-compose.yml down --remove-orphans || true
+          docker system prune -f || true
+        '''
+      }
+    }
     stage('Build Docker Images') {
       steps {
         sh 'docker-compose -f docker-compose.yml build'
