@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    nodejs 'node-20'
+  }
   environment {
     BACKEND_DIR = 'server'
     FRONTEND_DIR = 'client'
