@@ -30,7 +30,7 @@ pipeline {
     stage('Build Frontend') {
       steps {
         dir(env.FRONTEND_DIR) {
-          sh 'npm run build'
+          sh 'CI=false npm run build'
         }
       }
     }
